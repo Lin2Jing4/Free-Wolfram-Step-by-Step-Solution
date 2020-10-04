@@ -9,9 +9,9 @@ function query() {
     ).then(
         response => response.text()
     ).then(
-        string => string.replace(/plaintext/g, '')
+        string => string.replace(/<\/?plaintext>/g, '<hr>')
     ).then(
-        xml => document.write(xml)
+        xml => document.getElementById('p').innerHTML = xml
     )
 }
 
