@@ -7,9 +7,13 @@ function query() {
         '&podstate=Step-by-step%20solution'    +
         '&input=' + input
     ).then(
-        response => response.text()
+        xml => xml.text()
     ).then(
-        string => string.replace(/<\/?plaintext>/g, '<hr>')
+        xml => xml.replace(/<\/?plaintext>/g, '<hr>')
+    ).then(
+        xml => xml.replace(/<pod title=/g, '<h1>')
+    ).then(
+        xml => xml.replace(/scanner/g, '</h1><pod scanner')
     ).then(
         xml => document.getElementById('p').innerHTML = xml
     )
