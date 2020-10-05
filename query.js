@@ -1,11 +1,18 @@
+const appid = [
+    '26LQEH-YT3P6T3YY9',
+    'K49A6Y-4REWHGRWW6',
+    'J77PG9-UY8A3WQ2PG',
+    'P3WLYY-2G9GA6RQGE']
+
 function query() {
-    var input = encodeURIComponent(document.getElementById('textarea').value)
+    const input = document.getElementById('textarea').value
+    const random = Math.floor(Math.random() * appid.length)
     fetch(
         'https://cors-anywhere.herokuapp.com/' +
         'http://api.wolframalpha.com/v2/query' +
-        '?appid=26LQEH-YT3P6T3YY9'             +
-        '&podstate=Step-by-step%20solution'    +
-        '&input=' + input
+        '?podstate=Step-by-step%20solution'    +
+        '&input=' + encodeURIComponent(input)  +
+        '&appid=' + appid[random]
     ).then(
         xml => xml.text()
     ).then(
