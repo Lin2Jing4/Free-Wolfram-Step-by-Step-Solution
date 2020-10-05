@@ -12,7 +12,8 @@ function query() {
         'http://api.wolframalpha.com/v2/query' +
         '?podstate=Step-by-step%20solution'    +
         '&input=' + encodeURIComponent(input)  +
-        '&appid=' + appid[random]
+        '&appid=' + appid[random]              +
+        '&scantimeout=20'
     ).then(
         xml => xml.text()
     ).then(
