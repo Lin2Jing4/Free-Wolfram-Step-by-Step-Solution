@@ -46,10 +46,11 @@
 - `0 = y''''''(t) - 4y'''''(t) + 7y''''(t) - 4y'''(t) - 4y''(t) + 8y'(t) - 4y(t)`
 ###### General Second-Order Equations
 - `2 = t y''(t) - t y'(t) + y(t), y(0) = 2, y'(0) = -4`
-- `0 = solve y''(t) + sin(y(t))`
+- `0 = y''(t) + sin(y(t))`
+- `1 = x^4*y*y" + x^4*y'*y' + 3*x^3*y*y'`
+###### Sturm-Liouville Equations
 - `0 = y'' - 2 cot(x) y' + (1+2cot(x)^2) y`
 - `0 = y''(x) + tan(x) y'(x) + sec(x)^2 y(x)`
-- `1 = x^4*y*y" + x^4*y'*y' + 3*x^3*y*y'`
 - `0 = x^2y'' + xy' + (x^2-1/4)y`
 
 #### Calculus
