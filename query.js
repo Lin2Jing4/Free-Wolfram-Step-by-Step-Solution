@@ -1,19 +1,26 @@
-const appid = [
-    '26LQEH-YT3P6T3YY9',
-    'K49A6Y-4REWHGRWW6',
-    'J77PG9-UY8A3WQ2PG',
-    'P3WLYY-2G9GA6RQGE']
+const appid =
+[
+'26LQEH-YT3P6T3YY9',
+'K49A6Y-4REWHGRWW6',
+'J77PG9-UY8A3WQ2PG',
+'P3WLYY-2G9GA6RQGE',
+]
+
+const url = () =>
+`
+https://cors-anywhere.herokuapp.com/
+http://api.wolframalpha.com/v2/query?
+&appid=${ appid[Date.now() % appid.length] }
+&input=${ encodeURIComponent( document.getElementById('input').value ) }
+&podstate=Step-by-step solution
+&podstate=Step-by-step
+&podstate=Show all steps
+&scantimeout=20
+`
 
 function query() {
-    const input = document.getElementById('input').value
-    const random = Math.floor(Math.random() * appid.length)
     fetch(
-        'https://cors-anywhere.herokuapp.com/' +
-        'http://api.wolframalpha.com/v2/query' +
-        '?podstate=Step-by-step%20solution'    +
-        '&input=' + encodeURIComponent(input)  +
-        '&appid=' + appid[random]              +
-        '&scantimeout=20'
+        url()
     ).then(
         xml => xml.text()
     ).then(
@@ -21,7 +28,7 @@ function query() {
     ).then(
         xml => xml.replace(/<pod title=/g, '<h1>')
     ).then(
-        xml => xml.replace(/scanner/g, '</h1><pod scanner')
+        xml => xml.replace(/scan/g, '</h1><')
     ).then(
         xml => document.getElementById('p').innerHTML = xml
     )
