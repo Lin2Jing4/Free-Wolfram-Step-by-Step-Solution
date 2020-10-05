@@ -5,7 +5,7 @@ const appid = [
     'P3WLYY-2G9GA6RQGE']
 
 function query() {
-    const input = document.getElementById('textarea').value
+    const input = document.getElementById('input').value
     const random = Math.floor(Math.random() * appid.length)
     fetch(
         'https://cors-anywhere.herokuapp.com/' +
