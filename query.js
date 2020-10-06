@@ -5,6 +5,7 @@ const appid =
 'J77PG9-UY8A3WQ2PG',
 'P3WLYY-2G9GA6RQGE',
 'P7JH3K-27RHWR53JQ',
+'L349HV-29P5JV8Y7J',
 ]
 
 const url = () =>
@@ -25,7 +26,7 @@ function query() {
     ).then(
         xml => xml.text()
     ).then(
-        xml => xml.replace(/<\/?plaintext>/g, '<hr>')
+        xml => xml.replace(/\/?plaintext/g, 'hr')
     ).then(
         xml => xml.replace(/<pod title=/g, '<h1>')
     ).then(
