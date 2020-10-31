@@ -26,11 +26,11 @@ function query() {
     ).then(
         xml => xml.text()
     ).then(
-        xml => xml.replace(/\/?plaintext/g, 'hr')
+        xml => xml.replace(/plaintext/g, 'pre')
     ).then(
-        xml => xml.replace(/<pod title=/g, '<h1>')
+        xml => xml.replace(/<pod title='/g, '<h1>')
     ).then(
-        xml => xml.replace(/scan/g, '</h1><')
+        xml => xml.replace(/'\s*s/g, '</h1><!')
     ).then(
         xml => document.getElementById('p').innerHTML = xml
     )
