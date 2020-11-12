@@ -1,4 +1,6 @@
-const appid =
+'use strict'
+
+var appid =
 [
 '26LQEH-YT3P6T3YY9',
 'K49A6Y-4REWHGRWW6',
@@ -9,32 +11,29 @@ const appid =
 '77PP56-XLQK5GKUAA',
 ]
 
-const url = () =>
+var url = _ =>
 `
-https://cors-anywhere.herokuapp.com/
+https://lin2jing4-cors.herokuapp.com/
 http://api.wolframalpha.com/v2/query?
 &appid=${ appid[Date.now() % appid.length] }
-&input=${ encodeURIComponent( document.getElementById('input').value ) }
+&input=${ encodeURIComponent(input.value) }
 &podstate=Step-by-step solution
 &podstate=Step-by-step
 &podstate=Show all steps
 &scantimeout=20
 `
 
-function query() {
+var query = _ =>
     fetch(
         url()
     ).then(
         xml => xml.text()
     ).then(
         xml => xml.replace(/plaintext/g, 'pre')
+                  .replace(/<pod title='/g, '<h1>')
+                  .replace(/'\s*s/g, '</h1><!')
     ).then(
-        xml => xml.replace(/<pod title='/g, '<h1>')
-    ).then(
-        xml => xml.replace(/'\s*s/g, '</h1><!')
-    ).then(
-        xml => document.getElementById('p').innerHTML = xml
+        xml => p.innerHTML = xml
     )
-}
 
-document.getElementById('button').addEventListener('click', query)
+button.addEventListener('click', query)
