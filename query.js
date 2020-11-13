@@ -17,7 +17,7 @@ var url = _ =>
 https://lin2jing4-cors.herokuapp.com/
 http://api.wolframalpha.com/v2/query?
 &appid=${ appid[Date.now() % appid.length] }
-&input=${ encodeURIComponent(input.value) }
+&input=${ location.hash = encodeURIComponent(input.value) }
 &podstate=Step-by-step solution
 &podstate=Step-by-step
 &podstate=Show all steps
@@ -37,4 +37,5 @@ var query = _ =>
         xml => p.innerHTML = xml
     )
 
+input.value = decodeURIComponent(location.hash.slice(1))
 button.addEventListener('click', query)
