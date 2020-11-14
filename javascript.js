@@ -30,7 +30,8 @@ http://api.wolframalpha.com/v2/query?
 &scantimeout=20
 `
 
-button.onclick = _ =>
+button.onclick = _ => {
+    p.prepend('Processing, please wait. ')
     fetch(
         url()
     ).then(
@@ -42,5 +43,6 @@ button.onclick = _ =>
     ).then(
         xml => p.innerHTML = xml
     )
+}
 
 input.value = decodeURIComponent(location.hash.slice(1))
