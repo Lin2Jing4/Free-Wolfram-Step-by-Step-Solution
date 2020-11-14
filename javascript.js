@@ -38,11 +38,9 @@ button.onclick = _ => {
     ).then(
         xml => xml.text()
     ).then(
-        xml => xml.replace(/plaintext/g, 'pre')
-                  .replace(/<pod title='/g, '<h1>')
-                  .replace(/'\s*s/g, '</h1><!')
-    ).then(
-        xml => paragraph.innerHTML = xml
+        xml => paragraph.innerHTML = xml.replace(/plaintext/g, 'pre')
+                                        .replace(/<pod title='/g, '<h1>')
+                                        .replace(/'\s*s/g, '</h1><!')
     )
 }
 
