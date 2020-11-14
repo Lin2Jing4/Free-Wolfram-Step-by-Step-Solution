@@ -30,7 +30,7 @@ http://api.wolframalpha.com/v2/query?
 &scantimeout=20
 `
 
-var query = _ =>
+button.onclick = _ =>
     fetch(
         url()
     ).then(
@@ -44,4 +44,3 @@ var query = _ =>
     )
 
 input.value = decodeURIComponent(location.hash.slice(1))
-button.addEventListener('click', query)
