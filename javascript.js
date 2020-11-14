@@ -31,7 +31,7 @@ http://api.wolframalpha.com/v2/query?
 `
 
 button.onclick = _ => {
-    p.prepend('Processing, please wait. ')
+    paragraph.prepend('Processing, please wait. ')
     fetch(
         url()
     ).then(
@@ -41,7 +41,7 @@ button.onclick = _ => {
                   .replace(/<pod title='/g, '<h1>')
                   .replace(/'\s*s/g, '</h1><!')
     ).then(
-        xml => p.innerHTML = xml
+        xml => paragraph.innerHTML = xml
     )
 }
 
