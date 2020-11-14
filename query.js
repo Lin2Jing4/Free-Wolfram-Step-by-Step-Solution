@@ -10,14 +10,19 @@ var appid =
 'L349HV-29P5JV8Y7J',
 '77PP56-XLQK5GKUAA',
 '59EQ3X-HE26TY2W64',
+'8Q68TL-QA8W9GEXAA',
 ]
+
+var percentalize = str => 
+    encodeURIComponent(str)
+    .replace(/[-_.!~*'()]/g, char => '%' + char.charCodeAt(0).toString(16))
 
 var url = _ =>
 `
 https://lin2jing4-cors.herokuapp.com/
 http://api.wolframalpha.com/v2/query?
 &appid=${ appid[Date.now() % appid.length] }
-&input=${ encodeURIComponent(input.value) }
+&input=${ location.hash = percentalize(input.value) }
 &podstate=Step-by-step solution
 &podstate=Step-by-step
 &podstate=Show all steps
@@ -37,4 +42,5 @@ var query = _ =>
         xml => p.innerHTML = xml
     )
 
+input.value = decodeURIComponent(location.hash.slice(1))
 button.addEventListener('click', query)
