@@ -11,6 +11,9 @@ var appid =
 '77PP56-XLQK5GKUAA',
 '59EQ3X-HE26TY2W64',
 '8Q68TL-QA8W9GEXAA',
+'KQRKKJ-8WHPY395HA',
+'AAT4HU-Q3RETTGY93',
+'7JKH84-T648HW2UV9',
 ]
 
 var percentalize = str => 
@@ -29,18 +32,17 @@ http://api.wolframalpha.com/v2/query?
 &scantimeout=20
 `
 
-var query = _ =>
+button.onclick = _ => {
+    paragraph.prepend('Processing, please wait. ')
     fetch(
         url()
     ).then(
         xml => xml.text()
     ).then(
-        xml => xml.replace(/plaintext/g, 'pre')
-                  .replace(/<pod title='/g, '<h1>')
-                  .replace(/'\s*s/g, '</h1><!')
-    ).then(
-        xml => p.innerHTML = xml
+        xml => paragraph.innerHTML = xml.replace(/plaintext/g, 'pre')
+                                        .replace(/<pod title='/g, '<h1>')
+                                        .replace(/'\s*s/g, '</h1><!')
     )
+}
 
 input.value = decodeURIComponent(location.hash.slice(1))
-button.addEventListener('click', query)
