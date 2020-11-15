@@ -46,3 +46,23 @@ button.onclick = _ => {
 }
 
 input.value = decodeURIComponent(location.hash.slice(1))
+
+var demo = category =>
+    fetch(
+        'https://lin2jing4-cors.herokuapp.com/' +
+        'https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/' +
+        'step-by-step-' + category
+    ).then(
+        html => html.text()
+    ).then(
+        html => paragraph.innerHTML = html.replace(/.*examples-subpage-body../gs, '')
+                                          .replace(/subpage-footer-section.*/gs, '')
+                                          .replace(/.input..../g, '/Free-Wolfram-Step-by-Step-Solution#')
+                                          .replace(/\+/g, ' ')
+                                          .replace(/&amp;..../g, '')
+                                          .replace(/aside/g, 'aside hidden')
+                                          .replace(/More examples/g, '')
+                                          .replace(/svg /g, '')
+    )
+
+document.querySelectorAll('a').forEach(link => link.href = `javascript:demo('${link.innerText}')`)
