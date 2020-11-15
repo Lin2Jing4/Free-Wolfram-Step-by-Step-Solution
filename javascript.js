@@ -47,7 +47,8 @@ button.onclick = _ => {
 
 input.value = decodeURIComponent(location.hash.slice(1))
 
-var demo = category =>
+var demo = category => {
+    paragraph.prepend('Processing, please wait. ')
     fetch(
         'https://lin2jing4-cors.herokuapp.com/' +
         'https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/' +
@@ -64,5 +65,8 @@ var demo = category =>
                                           .replace(/More examples/g, '')
                                           .replace(/svg /g, '')
     )
+}
 
-document.querySelectorAll('a').forEach(link => link.href = `javascript:demo('${link.innerText}')`)
+document.querySelectorAll('a').forEach(
+    link => link.href = `javascript:demo('${link.innerText}')`
+)
