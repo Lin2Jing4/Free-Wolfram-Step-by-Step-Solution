@@ -45,7 +45,8 @@ button.onclick = _ => {
     )
 }
 
-input.value = decodeURIComponent(location.hash.slice(1))
+if (input.value = decodeURIComponent(location.hash.slice(1)))
+    button.click()
 
 var demo = category => {
     paragraph.prepend('Processing, please wait. ')
