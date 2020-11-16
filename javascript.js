@@ -25,14 +25,14 @@ var url = _ =>
 https://lin2jing4-cors.herokuapp.com/
 http://api.wolframalpha.com/v2/query?
 &appid=${ appid[Date.now() % appid.length] }
-&input=${ location.hash = percentalize(input.value) }
+&input=${ percentalize(input.value) }
 &podstate=Step-by-step solution
 &podstate=Step-by-step
 &podstate=Show all steps
 &scantimeout=20
 `
 
-button.onclick = _ => {
+form.onsubmit = event => {
     container.prepend('Processing, please wait. ')
     fetch(
         url()
@@ -43,10 +43,17 @@ button.onclick = _ => {
                                         .replace(/<pod title../g, '<h1>')
                                         .replace(/.......scanner/gs, '</h1><!')
     )
+    event.preventDefault()
 }
 
+input.oninput = _ =>
+    location.hash = percentalize(input.value)
+
+window.onhashchange = _ =>
+    input.value = decodeURIComponent(location.hash.slice(1))
+
 if (input.value = decodeURIComponent(location.hash.slice(1)))
-    button.click()
+    form.submit()
 
 var demo = category => {
     container.prepend('Processing, please wait. ')
