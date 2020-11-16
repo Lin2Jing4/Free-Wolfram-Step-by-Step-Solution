@@ -1,49 +1,32 @@
 <!DOCTYPE html>
-
 <html>
-    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Solved: FREE Wolfram|Alpha Step-by-Step Solutions">
         <meta property="og:image" content="https://www.wolframalpha.com/_next/static/images/headerSmall_14ipXg3E.png">
     </head>
-    
     <body>
-        
-        <input
-            id="input"
-            placeholder="enter expressions"
-            style="width: 100%"
-            autofocus>
-        
-        <button id="button">
-            show step-by-step solutions
-        </button>
-        
-        <a href="https://github.com/Lin2Jing4/Free-Wolfram-Step-by-Step-Solution">
-            source
-        </a>
-        
-        <a href="https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/">
-            wolfram
-        </a>
-        
-        <a class="example"> differential-equations </a>
-        <a class="example"> calculus               </a>
-        <a class="example"> algebra                </a>
-        <a class="example"> proofs                 </a>
-        <a class="example"> linear-algebra         </a>
-        <a class="example"> discrete-mathematics   </a>
-        <a class="example"> geometry               </a>
-        <a class="example"> statistics             </a>
-        <a class="example"> arithmetic             </a>
-        <a class="example"> chemistry              </a>
-        
+        <form id="form">
+            <input id="input" placeholder="enter expressions" style="width: 100%" autofocus>
+            <input type="submit" value="show step-by-step solutions">
+            <a href="https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/"> wolfram </a>
+            <a href="https://github.com/Lin2Jing4/Free-Wolfram-Step-by-Step-Solution"> source </a>
+        </form>
+        <details>
+            <summary> examples </summary>
+            <li> <a class="example"> calculus               </a>
+            <li> <a class="example"> differential-equations </a>
+            <li> <a class="example"> algebra                </a>
+            <li> <a class="example"> proofs                 </a>
+            <li> <a class="example"> linear-algebra         </a>
+            <li> <a class="example"> discrete-mathematics   </a>
+            <li> <a class="example"> geometry               </a>
+            <li> <a class="example"> statistics             </a>
+            <li> <a class="example"> arithmetic             </a>
+            <li> <a class="example"> chemistry              </a>
+        </details>
         <div id="container"> </div>
-        
         <script src="javascript.js"> </script>
-        
     </body>
-    
 </html>
