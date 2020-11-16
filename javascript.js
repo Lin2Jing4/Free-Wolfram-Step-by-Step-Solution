@@ -33,16 +33,41 @@ http://api.wolframalpha.com/v2/query?
 `
 
 button.onclick = _ => {
-    paragraph.prepend('Processing, please wait. ')
+    container.prepend('Processing, please wait. ')
     fetch(
         url()
     ).then(
         xml => xml.text()
     ).then(
-        xml => paragraph.innerHTML = xml.replace(/plaintext/g, 'pre')
+        xml => container.innerHTML = xml.replace(/plaintext/g, 'pre')
                                         .replace(/<pod title='/g, '<h1>')
                                         .replace(/'\s*s/g, '</h1><!')
     )
 }
 
-input.value = decodeURIComponent(location.hash.slice(1))
+if (input.value = decodeURIComponent(location.hash.slice(1)))
+    button.click()
+
+var demo = category => {
+    container.prepend('Processing, please wait. ')
+    fetch(
+        'https://lin2jing4-cors.herokuapp.com/' +
+        'https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/' +
+        'step-by-step-' + category
+    ).then(
+        html => html.text()
+    ).then(
+        html => container.innerHTML = html.replace(/.*examples-subpage-body../gs, '')
+                                          .replace(/subpage-footer-section.*/gs, '')
+                                          .replace(/.input..../g, '/Free-Wolfram-Step-by-Step-Solution#')
+                                          .replace(/\+/g, ' ')
+                                          .replace(/&amp;..../g, '')
+                                          .replace(/aside/g, 'aside hidden')
+                                          .replace(/More examples/g, '')
+                                          .replace(/svg /g, '')
+    )
+}
+
+document.querySelectorAll('.example').forEach(
+    example => example.href = `javascript:demo('${example.innerText}')`
+)
