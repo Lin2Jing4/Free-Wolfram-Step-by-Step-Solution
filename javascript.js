@@ -52,7 +52,8 @@ input.oninput = _ =>
 window.onhashchange = _ =>
     input.value = decodeURIComponent(location.hash.slice(1))
 
-if (input.value = decodeURIComponent(location.hash.slice(1)))
+input.value = decodeURIComponent(location.hash.slice(1))
+if (input.value != '')
     form.submit()
 
 var demo = category => {
