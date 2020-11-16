@@ -6,6 +6,7 @@
 ## Examples : [∰ Full List](https://www.wolframalpha.com/examples/pro-features/step-by-step-solutions/)
 
 #### Differential Equations
+- [3y''' + 2y'' + 1y' = 3!! sqrt exp x cosh x sin x, y(0) = 0, y'(0) = 0, y''(0) = 0](https://lin2jing4.github.io/Free-Wolfram-Step-by-Step-Solution/#3y%27%27%27%20%2B%202y%27%27%20%2B%201y%27%20%3D%203%21%21%20sqrt%20exp%20x%20cosh%20x%20sin%20x%2C%20y%280%29%20%3D%200%2C%20y%27%280%29%20%3D%200%2C%20y%27%27%280%29%20%3D%200)
 ###### Separable Equations
 - [sin(t + y(t)) = sec(y(t)) y'(t) + sin(t - y(t))](https://lin2jing4.github.io/Free-Wolfram-Step-by-Step-Solution/#sin%28t%20%2B%20y%28t%29%29%20%3D%20sec%28y%28t%29%29%20y%27%28t%29%20%2B%20sin%28t%20%2d%20y%28t%29%29)
 ###### Laplace Transforms
