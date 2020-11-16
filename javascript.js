@@ -41,7 +41,7 @@ button.onclick = _ => {
     ).then(
         xml => container.innerHTML = xml.replace(/plaintext/g, 'pre')
                                         .replace(/<pod title../g, '<h1>')
-                                        .replace(/'\s*s/g, '</h1><!')
+                                        .replace(/.......scanner/gs, '</h1><!')
     )
 }
 
