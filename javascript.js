@@ -52,9 +52,8 @@ input.oninput = _ =>
 window.onhashchange = _ =>
     input.value = decodeURIComponent(location.hash.slice(1))
 
-input.value = decodeURIComponent(location.hash.slice(1))
-if (input.value != '')
-    form.submit()
+if (input.value = decodeURIComponent(location.hash.slice(1)))
+    submit.click()
 
 var demo = category => {
     container.prepend('Processing, please wait. ')
