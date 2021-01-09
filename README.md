@@ -1,4 +1,4 @@
-# This repository is transferred to [https://WolfreeAlpha.github.io/](https://wolfreealpha.github.io/)
+# This repository is transferred to [https://WolfreeAlpha.github.io/](https://github.com/WolfreeAlpha/WolfreeAlpha.github.io)
 Please use new Wol[free](https://wolfreealpha.github.io/)Alpha instead. Update your bookmarks!
 
 # Free Wolfram Step-by-Step Solution : [🏠 Home Page](https://lin2jing4.github.io/Free-Wolfram-Step-by-Step-Solution/)
